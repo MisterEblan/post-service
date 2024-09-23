@@ -1,2 +1,15 @@
-package com.mreblan.postservice.kafka;public class KafkaProducer {
+package com.mreblan.postservice.kafka;
+
+import lombok.AllArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+@AllArgsConstructor
+@Service
+public class KafkaProducer {
+    private final KafkaTemplate<String, String> kafkaTemplate;
+
+    public void sendMessage(String message) {
+        kafkaTemplate.send("course", "msg", message);
+    }
 }
