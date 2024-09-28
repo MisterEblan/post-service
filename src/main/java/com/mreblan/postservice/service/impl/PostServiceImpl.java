@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @AllArgsConstructor
@@ -40,7 +39,9 @@ public class PostServiceImpl implements PostService {
         String logMessage = String.format("Post saved:\n%s", post.toString());
         log.info(logMessage);
 
-        return repository.save(post);
+        Post savedPost = repository.save(post);
+
+        return savedPost;
     }
 
     @Override

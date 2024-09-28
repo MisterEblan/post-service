@@ -23,3 +23,14 @@ spring:
 
   kafka:
     bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-post-created
+      auto-offset-reset: earliest
+    template:
+      default-topic: post-created-topic
+
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.LongSerializer
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
